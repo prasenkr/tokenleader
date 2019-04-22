@@ -31,7 +31,7 @@ def list_user_byname(username):
 @enforcer.enforce_access_rule_with_token('tokenleader.adminops.adminops_restapi.list_org')
 def list_org(wfc):   
     org_dict = af.list_org()
-    obj_json = {"name": dept_dict.get('name')}
+    obj_json = {"name": org_dict.get('name')}
     response_obj = {"status": obj_json}   
     return jsonify(response_obj)
 
