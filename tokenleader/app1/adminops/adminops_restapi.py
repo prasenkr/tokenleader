@@ -29,9 +29,10 @@ def list_user_byname(username):
 
 @adminops_bp.route('/list/org', methods=['GET'])
 @enforcer.enforce_access_rule_with_token('tokenleader.adminops.adminops_restapi.list_org')
-def list_org(wfc):    
-    record = af.list_org()
-    response_obj = {"status": record}
+def list_org(wfc):   
+    org_dict = af.list_org()
+    obj_json = {"name": dept_dict.get('name')}
+    response_obj = {"status": obj_json}   
     return jsonify(response_obj)
 
 @adminops_bp.route('/list/dept', methods=['GET'])
